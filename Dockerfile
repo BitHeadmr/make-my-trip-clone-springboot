@@ -8,6 +8,9 @@ WORKDIR /app
 COPY pom.xml mvnw ./
 COPY .mvn .mvn
 
+# Grant execute permission to the mvnw script
+RUN chmod +x mvnw
+
 # Download dependencies before adding the source code
 RUN ./mvnw dependency:go-offline -B
 
