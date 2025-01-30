@@ -1,5 +1,5 @@
 # Use an official Maven image with JDK for building
-FROM maven:3.8.6-eclipse-temurin-17 AS build
+FROM maven:3.9.5-eclipse-temurin-23 AS build
 
 WORKDIR /app
 COPY . .
@@ -8,7 +8,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Use a lighter runtime image
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:23-jre
 
 WORKDIR /app
 
